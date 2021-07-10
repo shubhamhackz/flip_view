@@ -72,153 +72,235 @@ class FoldingCellSimpleDemo extends StatelessWidget {
           //     );
           //   }),
           // ),
-          child: Stack(
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: 400,
+          child: Container(
+            width: 800,
+            child: Row(
+              children: [
+                // Container(
+                //   width: 195,
+                //   child: Column(
+                //     crossAxisAlignment: CrossAxisAlignment.start,
+                //     children: [
+                //       SizedBox(
+                //         width: 400,
+                //       ),
+                //       SimpleFoldingCell.create(
+                //         key: GlobalKey<SimpleFoldingCellState>(),
+                //         frontWidget: _buildFrontWidget('assets/irene.png'),
+                //         innerWidget: _buildInnerWidget('irene'),
+                //         cellSize: Size(MediaQuery.of(context).size.width / 2,
+                //             MediaQuery.of(context).size.width / 2),
+                //         padding: EdgeInsets.all(0),
+                //         animationDuration: Duration(milliseconds: 300),
+                //         borderRadius: 10,
+                //         onOpen: () {
+                //           print('cell opened : ');
+                //         },
+                //         onClose: () {
+                //           print('cell closed :');
+                //         },
+                //       ),
+                //       SimpleFoldingCell.create(
+                //         key: GlobalKey<SimpleFoldingCellState>(),
+                //         frontWidget: _buildFrontWidget('assets/julia.png'),
+                //         innerWidget: _buildInnerWidget('julia'),
+                //         cellSize: Size(MediaQuery.of(context).size.width / 2,
+                //             MediaQuery.of(context).size.width / 2),
+                //         padding: EdgeInsets.all(0),
+                //         animationDuration: Duration(milliseconds: 300),
+                //         borderRadius: 10,
+                //         onOpen: () {
+                //           print('cell opened : ');
+                //         },
+                //         onClose: () {
+                //           print('cell closed : ');
+                //         },
+                //       ),
+                //       SimpleFoldingCell.create(
+                //         key: GlobalKey<SimpleFoldingCellState>(),
+                //         frontWidget: _buildFrontWidget('assets/paul.png'),
+                //         innerWidget: _buildInnerWidget('paul'),
+                //         cellSize: Size(MediaQuery.of(context).size.width / 2,
+                //             MediaQuery.of(context).size.width / 2),
+                //         padding: EdgeInsets.all(0),
+                //         animationDuration: Duration(milliseconds: 300),
+                //         borderRadius: 10,
+                //         onOpen: () {
+                //           print('cell opened : ');
+                //         },
+                //         onClose: () {
+                //           print('cell closed : ');
+                //         },
+                //       ),
+                //       SimpleFoldingCell.create(
+                //         key: GlobalKey<SimpleFoldingCellState>(),
+                //         frontWidget: _buildFrontWidget('assets/irene.png'),
+                //         innerWidget: _buildInnerWidget('irene'),
+                //         cellSize: Size(MediaQuery.of(context).size.width / 2,
+                //             MediaQuery.of(context).size.width / 2),
+                //         padding: EdgeInsets.all(0),
+                //         animationDuration: Duration(milliseconds: 300),
+                //         borderRadius: 10,
+                //         onOpen: () {
+                //           print('cell opened : ');
+                //         },
+                //         onClose: () {
+                //           print('cell closed : ');
+                //         },
+                //       )
+                //     ],
+                //   ),
+                // ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // SizedBox(
+                      //   width: 400,
+                      // ),
+                      SimpleFoldingCell.create(
+                        key: GlobalKey<SimpleFoldingCellState>(),
+                        frontWidget: _buildFrontWidget('assets/daria.png'),
+                        innerWidget: _buildInnerWidget('daria'),
+                        cellSize: Size(MediaQuery.of(context).size.width / 2,
+                            MediaQuery.of(context).size.width / 2),
+                        padding: EdgeInsets.all(0),
+                        animationDuration: Duration(milliseconds: 300),
+                        borderRadius: 10,
+                        onOpen: () {
+                          print('cell opened : ');
+                        },
+                        onClose: () {
+                          print('cell closed :');
+                        },
+                      ),
+                      SimpleFoldingCell.create(
+                        key: GlobalKey<SimpleFoldingCellState>(),
+                        frontWidget: _buildFrontWidget('assets/anastasia.png'),
+                        innerWidget: _buildInnerWidget('anastasia'),
+                        cellSize: Size(MediaQuery.of(context).size.width / 2,
+                            MediaQuery.of(context).size.width / 2),
+                        padding: EdgeInsets.all(0),
+                        animationDuration: Duration(milliseconds: 300),
+                        borderRadius: 10,
+                        onOpen: () {
+                          print('cell opened : ');
+                        },
+                        onClose: () {
+                          print('cell closed : ');
+                        },
+                      ),
+                      SimpleFoldingCell.create(
+                        key: GlobalKey<SimpleFoldingCellState>(),
+                        frontWidget: _buildFrontWidget('assets/kate.png'),
+                        innerWidget: _buildInnerWidget('kate'),
+                        cellSize: Size(MediaQuery.of(context).size.width / 2,
+                            MediaQuery.of(context).size.width / 2),
+                        padding: EdgeInsets.all(0),
+                        animationDuration: Duration(milliseconds: 300),
+                        borderRadius: 10,
+                        onOpen: () {
+                          print('cell opened : ');
+                        },
+                        onClose: () {
+                          print('cell closed :');
+                        },
+                      ),
+                      SimpleFoldingCell.create(
+                        key: GlobalKey<SimpleFoldingCellState>(),
+                        frontWidget: _buildFrontWidget('assets/kirill.png'),
+                        innerWidget: _buildInnerWidget('kirill'),
+                        cellSize: Size(MediaQuery.of(context).size.width / 2,
+                            MediaQuery.of(context).size.width / 2),
+                        padding: EdgeInsets.all(0),
+                        animationDuration: Duration(milliseconds: 300),
+                        borderRadius: 10,
+                        onOpen: () {
+                          print('cell opened : ');
+                        },
+                        onClose: () {
+                          print('cell closed : ');
+                        },
+                      )
+                    ],
                   ),
-                  SimpleFoldingCell.create(
-                    key: GlobalKey<SimpleFoldingCellState>(),
-                    frontWidget: _buildFrontWidget('assets/daria.png'),
-                    innerWidget: _buildInnerWidget('daria'),
-                    cellSize: Size(MediaQuery.of(context).size.width / 2,
-                        MediaQuery.of(context).size.width / 2),
-                    padding: EdgeInsets.all(0),
-                    animationDuration: Duration(milliseconds: 300),
-                    borderRadius: 10,
-                    onOpen: () {
-                      print('cell opened : ');
-                    },
-                    onClose: () {
-                      print('cell closed :');
-                    },
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      // SizedBox(
+                      //   width: 400,
+                      // ),
+                      SimpleFoldingCell.create(
+                        key: GlobalKey<SimpleFoldingCellState>(),
+                        frontWidget: _buildFrontWidget('assets/irene.png'),
+                        innerWidget: _buildInnerWidget('irene'),
+                        cellSize: Size(MediaQuery.of(context).size.width / 2,
+                            MediaQuery.of(context).size.width / 2),
+                        padding: EdgeInsets.all(0),
+                        animationDuration: Duration(milliseconds: 300),
+                        borderRadius: 10,
+                        onOpen: () {
+                          print('cell opened : ');
+                        },
+                        onClose: () {
+                          print('cell closed :');
+                        },
+                      ),
+                      SimpleFoldingCell.create(
+                        key: GlobalKey<SimpleFoldingCellState>(),
+                        frontWidget: _buildFrontWidget('assets/julia.png'),
+                        innerWidget: _buildInnerWidget('julia'),
+                        cellSize: Size(MediaQuery.of(context).size.width / 2,
+                            MediaQuery.of(context).size.width / 2),
+                        padding: EdgeInsets.all(0),
+                        animationDuration: Duration(milliseconds: 300),
+                        borderRadius: 10,
+                        onOpen: () {
+                          print('cell opened : ');
+                        },
+                        onClose: () {
+                          print('cell closed : ');
+                        },
+                      ),
+                      SimpleFoldingCell.create(
+                        key: GlobalKey<SimpleFoldingCellState>(),
+                        frontWidget: _buildFrontWidget('assets/paul.png'),
+                        innerWidget: _buildInnerWidget('paul'),
+                        cellSize: Size(MediaQuery.of(context).size.width / 2,
+                            MediaQuery.of(context).size.width / 2),
+                        padding: EdgeInsets.all(0),
+                        animationDuration: Duration(milliseconds: 300),
+                        borderRadius: 10,
+                        onOpen: () {
+                          print('cell opened : ');
+                        },
+                        onClose: () {
+                          print('cell closed : ');
+                        },
+                      ),
+                      SimpleFoldingCell.create(
+                        key: GlobalKey<SimpleFoldingCellState>(),
+                        frontWidget: _buildFrontWidget('assets/irene.png'),
+                        innerWidget: _buildInnerWidget('irene'),
+                        cellSize: Size(MediaQuery.of(context).size.width / 2,
+                            MediaQuery.of(context).size.width / 2),
+                        padding: EdgeInsets.all(0),
+                        animationDuration: Duration(milliseconds: 300),
+                        borderRadius: 10,
+                        onOpen: () {
+                          print('cell opened : ');
+                        },
+                        onClose: () {
+                          print('cell closed : ');
+                        },
+                      )
+                    ],
                   ),
-                  SimpleFoldingCell.create(
-                    key: GlobalKey<SimpleFoldingCellState>(),
-                    frontWidget: _buildFrontWidget('assets/anastasia.png'),
-                    innerWidget: _buildInnerWidget('anastasia'),
-                    cellSize: Size(MediaQuery.of(context).size.width / 2,
-                        MediaQuery.of(context).size.width / 2),
-                    padding: EdgeInsets.all(0),
-                    animationDuration: Duration(milliseconds: 300),
-                    borderRadius: 10,
-                    onOpen: () {
-                      print('cell opened : ');
-                    },
-                    onClose: () {
-                      print('cell closed : ');
-                    },
-                  ),
-                  SimpleFoldingCell.create(
-                    key: GlobalKey<SimpleFoldingCellState>(),
-                    frontWidget: _buildFrontWidget('assets/kate.png'),
-                    innerWidget: _buildInnerWidget('kate'),
-                    cellSize: Size(MediaQuery.of(context).size.width / 2,
-                        MediaQuery.of(context).size.width / 2),
-                    padding: EdgeInsets.all(0),
-                    animationDuration: Duration(milliseconds: 300),
-                    borderRadius: 10,
-                    onOpen: () {
-                      print('cell opened : ');
-                    },
-                    onClose: () {
-                      print('cell closed :');
-                    },
-                  ),
-                  SimpleFoldingCell.create(
-                    key: GlobalKey<SimpleFoldingCellState>(),
-                    frontWidget: _buildFrontWidget('assets/kirill.png'),
-                    innerWidget: _buildInnerWidget('kirill'),
-                    cellSize: Size(MediaQuery.of(context).size.width / 2,
-                        MediaQuery.of(context).size.width / 2),
-                    padding: EdgeInsets.all(0),
-                    animationDuration: Duration(milliseconds: 300),
-                    borderRadius: 10,
-                    onOpen: () {
-                      print('cell opened : ');
-                    },
-                    onClose: () {
-                      print('cell closed : ');
-                    },
-                  )
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  SizedBox(
-                    width: 400,
-                  ),
-                  SimpleFoldingCell.create(
-                    key: GlobalKey<SimpleFoldingCellState>(),
-                    frontWidget: _buildFrontWidget('assets/irene.png'),
-                    innerWidget: _buildInnerWidget('irene'),
-                    cellSize: Size(MediaQuery.of(context).size.width / 2,
-                        MediaQuery.of(context).size.width / 2),
-                    padding: EdgeInsets.all(0),
-                    animationDuration: Duration(milliseconds: 300),
-                    borderRadius: 10,
-                    onOpen: () {
-                      print('cell opened : ');
-                    },
-                    onClose: () {
-                      print('cell closed :');
-                    },
-                  ),
-                  SimpleFoldingCell.create(
-                    key: GlobalKey<SimpleFoldingCellState>(),
-                    frontWidget: _buildFrontWidget('assets/julia.png'),
-                    innerWidget: _buildInnerWidget('julia'),
-                    cellSize: Size(MediaQuery.of(context).size.width / 2,
-                        MediaQuery.of(context).size.width / 2),
-                    padding: EdgeInsets.all(0),
-                    animationDuration: Duration(milliseconds: 300),
-                    borderRadius: 10,
-                    onOpen: () {
-                      print('cell opened : ');
-                    },
-                    onClose: () {
-                      print('cell closed : ');
-                    },
-                  ),
-                  SimpleFoldingCell.create(
-                    key: GlobalKey<SimpleFoldingCellState>(),
-                    frontWidget: _buildFrontWidget('assets/paul.png'),
-                    innerWidget: _buildInnerWidget('paul'),
-                    cellSize: Size(MediaQuery.of(context).size.width / 2,
-                        MediaQuery.of(context).size.width / 2),
-                    padding: EdgeInsets.all(0),
-                    animationDuration: Duration(milliseconds: 300),
-                    borderRadius: 10,
-                    onOpen: () {
-                      print('cell opened : ');
-                    },
-                    onClose: () {
-                      print('cell closed : ');
-                    },
-                  ),
-                  SimpleFoldingCell.create(
-                    key: GlobalKey<SimpleFoldingCellState>(),
-                    frontWidget: _buildFrontWidget('assets/irene.png'),
-                    innerWidget: _buildInnerWidget('irene'),
-                    cellSize: Size(MediaQuery.of(context).size.width / 2,
-                        MediaQuery.of(context).size.width / 2),
-                    padding: EdgeInsets.all(0),
-                    animationDuration: Duration(milliseconds: 300),
-                    borderRadius: 10,
-                    onOpen: () {
-                      print('cell opened : ');
-                    },
-                    onClose: () {
-                      print('cell closed : ');
-                    },
-                  )
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -466,9 +548,12 @@ class SimpleFoldingCellState extends State<SimpleFoldingCell>
 
         final diff = (_freshPosition - _startPosition).dx;
 
-        if (swipeDirection == SwipeDirection.left) {
-          _animationController.value =
-              -(_offsetValue + diff / screenSize.width);
+        if (swipeDirection == SwipeDirection.right) {
+          //left
+          _animationController.value = (_offsetValue +
+              diff /
+                  screenSize
+                      .width); //-(_offsetValue + diff / screenSize.width);
         } else {
           _animationController.value = (_offsetValue - diff / screenSize.width);
         }
@@ -480,7 +565,8 @@ class SimpleFoldingCellState extends State<SimpleFoldingCell>
         _startPosition = null;
 
         /// If this is a right swipe
-        if (swipeDirection == SwipeDirection.right) {
+        if (swipeDirection == SwipeDirection.left) {
+          // right
           /// And if the _animationController's value is greater than or equal to 0.35
           /// then it means that the user had swiped enough to show the drawer
           if (_animationController.value >= 0.35) {
@@ -556,13 +642,13 @@ class SimpleFoldingCellState extends State<SimpleFoldingCell>
                     ),
                   ),
                   Transform(
-                    alignment: Alignment.centerLeft,
+                    alignment: Alignment.centerRight, //centerLeft
                     transform: Matrix4.identity()
                       ..setEntry(3, 2, 0.001)
-                      ..rotateY(angle),
+                      ..rotateY(-angle), //angle
                     child: Transform(
                       alignment: Alignment.center,
-                      transform: Matrix4.rotationY(pi),
+                      transform: Matrix4.rotationY(-pi), //pi
                       child: ClipRRect(
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(widget.borderRadius),
@@ -588,10 +674,10 @@ class SimpleFoldingCellState extends State<SimpleFoldingCell>
                     ),
                   ),
                   Transform(
-                    alignment: Alignment.centerLeft,
+                    alignment: Alignment.centerRight, //centerLeft
                     transform: Matrix4.identity()
                       ..setEntry(3, 2, 0.001)
-                      ..rotateY(angle),
+                      ..rotateY(-angle), //angle
                     child: Opacity(
                       opacity: angle >= 1.5708 ? 0.0 : 1.0,
                       child: ClipRRect(
