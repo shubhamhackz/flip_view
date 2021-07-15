@@ -67,10 +67,13 @@ class _FlipViewState extends State<FlipView> {
             stream: activeColumnController.stream,
             builder: (context, snapshot) {
               if (snapshot.data != null) {
-                if (snapshot.data == _keys[0]) {
+                // if (snapshot.data == _keys[0]) {
+                //   _swap(1, 0);
+                // } else {
+                //   _swap(0, 1);
+                // }
+                if (snapshot.data == _widgets[0].key) {
                   _swap(1, 0);
-                } else {
-                  _swap(0, 1);
                 }
               }
               print('Widgets : $_widgets');
@@ -197,7 +200,6 @@ class Second extends StatelessWidget {
           // borderRadius: 10,
           onOpen: () {
             print('cell opened : ');
-            controller.add(1);
           },
           onClose: () {
             print('cell closed :');
