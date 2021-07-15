@@ -283,9 +283,72 @@ class BuildInnerWidget extends StatelessWidget {
       padding: EdgeInsets.only(top: 10),
       child: Stack(
         children: [
+          // Align(
+          //   alignment: Alignment.center,
+          //   child: Text('$name shubham soni goldy'),
+          // ),
           Align(
               alignment: Alignment.center,
-              child: Text('$name shubham soni goldy')),
+              child: Column(
+                children: [
+                  Text(name),
+                  Wrap(
+                    direction: Axis.horizontal,
+                    children: [
+                      Container(
+                        width: 80,
+                        height: 20,
+                        color: Colors.black,
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Artist',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      Container(
+                        width: 80,
+                        height: 20,
+                        color: Colors.black,
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Litrature',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      Container(
+                        width: 80,
+                        height: 20,
+                        color: Colors.black,
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Chill Music',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      Container(
+                        width: 80,
+                        height: 20,
+                        color: Colors.black,
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Artist',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      Container(
+                        width: 80,
+                        height: 20,
+                        color: Colors.black,
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Artist',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              )),
         ],
       ),
       // child: Text(name),
