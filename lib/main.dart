@@ -279,15 +279,17 @@ class BuildInnerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.yellow,
+      width: 400,
       padding: EdgeInsets.only(top: 10),
       child: Stack(
         children: [
           Align(
-            alignment: Alignment.center,
-            child: Text(name),
-          ),
+              alignment: Alignment.center,
+              child: Text('$name shubham soni goldy')),
         ],
       ),
+      // child: Text(name),
+      // child: Align(child: Text(name)),
     );
   }
 }
@@ -512,7 +514,7 @@ class FlipTileState extends State<FlipTile>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      behavior: HitTestBehavior.translucent,
+      behavior: HitTestBehavior.opaque,
       onHorizontalDragStart: (DragStartDetails details) {
         final screenSize = MediaQuery.of(context).size;
         // widget.controller.add(1);
@@ -645,8 +647,8 @@ class FlipTileState extends State<FlipTile>
                             widthFactor: 0.5,
                             alignment:
                                 widget.unfoldDirection == SwipeDirection.left
-                                    ? Alignment.centerLeft
-                                    : Alignment.centerRight,
+                                    ? Alignment.centerRight
+                                    : Alignment.centerLeft,
                             child: widget.innerWidget,
                           ),
                         ),
@@ -685,11 +687,11 @@ class FlipTileState extends State<FlipTile>
                                     : Alignment.centerRight,
                             child: ClipRect(
                               child: Align(
-                                widthFactor: 0.5,
+                                // widthFactor: 0.5,
                                 alignment: widget.unfoldDirection ==
                                         SwipeDirection.left
-                                    ? Alignment.centerLeft
-                                    : Alignment.centerRight,
+                                    ? Alignment.centerRight
+                                    : Alignment.centerLeft,
                                 child: widget.innerWidget,
                               ),
                             ),
