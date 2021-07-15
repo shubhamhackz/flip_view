@@ -91,7 +91,7 @@ class _FlipViewState extends State<FlipView> {
                     //       SizedBox(
                     //         width: 400,
                     //       ),
-                    // SimpleFoldingCell.create(
+                    // SimpleFoldingCell(
                     //   key: GlobalKey<SimpleFoldingCellState>(),
                     //   frontWidget: _buildFrontWidget('assets/irene.png'),
                     //   innerWidget: _buildInnerWidget('irene'),
@@ -107,7 +107,7 @@ class _FlipViewState extends State<FlipView> {
                     //     print('cell closed :');
                     //   },
                     // ),
-                    //       SimpleFoldingCell.create(
+                    //       SimpleFoldingCell(
                     //         key: GlobalKey<SimpleFoldingCellState>(),
                     //         frontWidget: _buildFrontWidget('assets/julia.png'),
                     //         innerWidget: _buildInnerWidget('julia'),
@@ -123,7 +123,7 @@ class _FlipViewState extends State<FlipView> {
                     //           print('cell closed : ');
                     //         },
                     //       ),
-                    //       SimpleFoldingCell.create(
+                    //       SimpleFoldingCell(
                     //         key: GlobalKey<SimpleFoldingCellState>(),
                     //         frontWidget: _buildFrontWidget('assets/paul.png'),
                     //         innerWidget: _buildInnerWidget('paul'),
@@ -139,7 +139,7 @@ class _FlipViewState extends State<FlipView> {
                     //           print('cell closed : ');
                     //         },
                     //       ),
-                    //       SimpleFoldingCell.create(
+                    //       SimpleFoldingCell(
                     //         key: GlobalKey<SimpleFoldingCellState>(),
                     //         frontWidget: _buildFrontWidget('assets/irene.png'),
                     //         innerWidget: _buildInnerWidget('irene'),
@@ -183,7 +183,7 @@ class Second extends StatelessWidget {
         SizedBox(
           width: 400,
         ),
-        FlipTile.create(
+        FlipTile(
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/irene.png'),
           innerWidget: BuildInnerWidget(name: 'irene'),
@@ -200,8 +200,9 @@ class Second extends StatelessWidget {
             print('cell closed :');
           },
           controller: controller,
+          unfoldDirection: SwipeDirection.left,
         ),
-        FlipTile.create(
+        FlipTile(
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/julia.png'),
           innerWidget: BuildInnerWidget(name: 'julia'),
@@ -218,7 +219,7 @@ class Second extends StatelessWidget {
           },
           controller: controller,
         ),
-        FlipTile.create(
+        FlipTile(
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/paul.png'),
           innerWidget: BuildInnerWidget(name: 'paul'),
@@ -235,7 +236,7 @@ class Second extends StatelessWidget {
           },
           controller: controller,
         ),
-        FlipTile.create(
+        FlipTile(
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/irene.png'),
           innerWidget: BuildInnerWidget(name: 'irene'),
@@ -311,14 +312,14 @@ class First extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 195,
+          width: 198,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 width: 400,
               ),
-              FlipTile.create(
+              FlipTile(
                 key: GlobalKey<FlipTileState>(),
                 frontWidget: BuildFrontWidget(asset: 'assets/daria.png'),
                 innerWidget: BuildInnerWidget(name: 'daria'),
@@ -335,8 +336,9 @@ class First extends StatelessWidget {
                   print('cell closed :');
                 },
                 controller: controller,
+                unfoldDirection: SwipeDirection.right,
               ),
-              FlipTile.create(
+              FlipTile(
                 key: GlobalKey<FlipTileState>(),
                 frontWidget: BuildFrontWidget(asset: 'assets/anastasia.png'),
                 innerWidget: BuildInnerWidget(name: 'anastasia'),
@@ -353,7 +355,7 @@ class First extends StatelessWidget {
                 },
                 controller: controller,
               ),
-              FlipTile.create(
+              FlipTile(
                 key: GlobalKey<FlipTileState>(),
                 frontWidget: BuildFrontWidget(asset: 'assets/kate.png'),
                 innerWidget: BuildInnerWidget(name: 'kate'),
@@ -370,7 +372,7 @@ class First extends StatelessWidget {
                 },
                 controller: controller,
               ),
-              FlipTile.create(
+              FlipTile(
                 key: GlobalKey<FlipTileState>(),
                 frontWidget: BuildFrontWidget(asset: 'assets/kirill.png'),
                 innerWidget: BuildInnerWidget(name: 'kirill'),
@@ -397,7 +399,7 @@ class First extends StatelessWidget {
 
 /// Folding Cell Widget
 class FlipTile extends StatefulWidget {
-  FlipTile.create({
+  FlipTile({
     Key key,
     @required this.frontWidget,
     @required this.innerWidget,
@@ -410,7 +412,7 @@ class FlipTile extends StatefulWidget {
     this.borderRadius = 0.0,
     this.onOpen,
     this.onClose,
-    this.unfolDirection,
+    this.unfoldDirection,
     this.controller,
   })  : assert(frontWidget != null),
         assert(innerWidget != null),
@@ -423,7 +425,7 @@ class FlipTile extends StatefulWidget {
         super(key: key);
 
   final StreamController controller;
-  final SwipeDirection unfolDirection;
+  final SwipeDirection unfoldDirection;
   // Front widget in folded cell
   final Widget frontWidget;
 
@@ -521,7 +523,7 @@ class FlipTileState extends State<FlipTile>
         }
 
         // Note: Sensitivity is integer used when you don't want to mess up vertical drag
-        int sensitivity = 2;
+        int sensitivity = 1;
         if (details.delta.dx > sensitivity) {
           // Right Swipe
           swipeDirection = SwipeDirection.right;
@@ -536,14 +538,26 @@ class FlipTileState extends State<FlipTile>
 
         final diff = (_freshPosition - _startPosition).dx;
 
-        if (swipeDirection == SwipeDirection.right) {
-          //left
-          _animationController.value = (_offsetValue +
-              diff /
-                  screenSize
-                      .width); //-(_offsetValue + diff / screenSize.width);
+        if (widget.unfoldDirection == SwipeDirection.right) {
+          if (swipeDirection == SwipeDirection.right) {
+            //left
+            _animationController.value = -(_offsetValue +
+                diff /
+                    screenSize
+                        .width); //-(_offsetValue + diff / screenSize.width);
+          } else {
+            _animationController.value =
+                (_offsetValue - diff / screenSize.width);
+          }
         } else {
-          _animationController.value = (_offsetValue - diff / screenSize.width);
+          if (swipeDirection == SwipeDirection.left) {
+            //left
+            _animationController.value =
+                -(_offsetValue + diff / screenSize.width);
+          } else {
+            _animationController.value =
+                (_offsetValue - diff / screenSize.width);
+          }
         }
       },
       onHorizontalDragEnd: (DragEndDetails details) {
@@ -618,25 +632,21 @@ class FlipTileState extends State<FlipTile>
                           ),
                         ),
                       ),
-                      // child: OverflowBox(
-                      //   minWidth: cellWidth,
-                      //   maxWidth: cellWidth * 2,
-                      //   child: Align(
-                      //     widthFactor: 0.5,
-                      //     alignment: Alignment.centerRight,
-                      //     child: widget.innerWidget,
-                      //   ),
-                      // ),
                     ),
                   ),
                   Transform(
-                    alignment: Alignment.centerRight, //centerLeft
+                    alignment: Alignment.centerLeft, //centerLeft
                     transform: Matrix4.identity()
                       ..setEntry(3, 2, 0.001)
-                      ..rotateY(-angle), //angle
+                      ..rotateY(widget.unfoldDirection == SwipeDirection.left
+                          ? angle
+                          : -angle), //angle
                     child: Transform(
                       alignment: Alignment.center,
-                      transform: Matrix4.rotationY(-pi), //pi
+                      transform: Matrix4.rotationY(
+                          widget.unfoldDirection == SwipeDirection.left
+                              ? pi
+                              : -pi), //pi
                       child: ClipRRect(
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(widget.borderRadius),
@@ -662,10 +672,14 @@ class FlipTileState extends State<FlipTile>
                     ),
                   ),
                   Transform(
-                    alignment: Alignment.centerRight, //centerLeft
+                    alignment: widget.unfoldDirection == SwipeDirection.left
+                        ? Alignment.centerLeft
+                        : Alignment.centerRight, //centerLeft
                     transform: Matrix4.identity()
                       ..setEntry(3, 2, 0.001)
-                      ..rotateY(-angle), //angle
+                      ..rotateY(widget.unfoldDirection == SwipeDirection.left
+                          ? angle
+                          : -angle), //angle
                     child: Opacity(
                       opacity: angle >= 1.5708 ? 0.0 : 1.0,
                       child: ClipRRect(
