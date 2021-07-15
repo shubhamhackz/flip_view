@@ -28,7 +28,7 @@ class FlipView extends StatefulWidget {
 }
 
 class _FlipViewState extends State<FlipView> {
-  StreamController<int> activeColumnController;
+  StreamController<Key> activeColumnController;
   List<Widget> _widgets;
   List<Key> _keys;
 
@@ -62,13 +62,16 @@ class _FlipViewState extends State<FlipView> {
         title: Text('Flip View'),
       ),
       body: SingleChildScrollView(
-        child: StreamBuilder<int>(
+        child: StreamBuilder<Key>(
             // initialData: 0,
             stream: activeColumnController.stream,
             builder: (context, snapshot) {
-              if (!snapshot.hasData || snapshot.data == null) Container();
-              if (snapshot.data != 0) {
-                _swap(0, 1);
+              if (snapshot.data != null) {
+                if (snapshot.data == _keys[0]) {
+                  _swap(1, 0);
+                } else {
+                  _swap(0, 1);
+                }
               }
               print('Widgets : $_widgets');
               return Container(
@@ -191,7 +194,7 @@ class Second extends StatelessWidget {
               MediaQuery.of(context).size.width / 2),
           padding: EdgeInsets.all(0),
           animationDuration: Duration(milliseconds: 300),
-          borderRadius: 10,
+          // borderRadius: 10,
           onOpen: () {
             print('cell opened : ');
             controller.add(1);
@@ -201,6 +204,7 @@ class Second extends StatelessWidget {
           },
           controller: controller,
           unfoldDirection: SwipeDirection.left,
+          parentKey: key,
         ),
         FlipTile(
           key: GlobalKey<FlipTileState>(),
@@ -312,7 +316,7 @@ class First extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 198,
+          width: 200,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -327,16 +331,16 @@ class First extends StatelessWidget {
                     MediaQuery.of(context).size.width / 2),
                 padding: EdgeInsets.all(0),
                 animationDuration: Duration(milliseconds: 300),
-                borderRadius: 10,
+                // borderRadius: 10,
                 onOpen: () {
                   print('cell opened : ');
-                  controller.add(0);
                 },
                 onClose: () {
                   print('cell closed :');
                 },
                 controller: controller,
                 unfoldDirection: SwipeDirection.right,
+                parentKey: key,
               ),
               FlipTile(
                 key: GlobalKey<FlipTileState>(),
@@ -414,6 +418,7 @@ class FlipTile extends StatefulWidget {
     this.onClose,
     this.unfoldDirection,
     this.controller,
+    this.parentKey,
   })  : assert(frontWidget != null),
         assert(innerWidget != null),
         assert(cellSize != null),
@@ -426,6 +431,7 @@ class FlipTile extends StatefulWidget {
 
   final StreamController controller;
   final SwipeDirection unfoldDirection;
+  final Key parentKey;
   // Front widget in folded cell
   final Widget frontWidget;
 
@@ -502,7 +508,8 @@ class FlipTileState extends State<FlipTile>
       behavior: HitTestBehavior.translucent,
       onHorizontalDragStart: (DragStartDetails details) {
         final screenSize = MediaQuery.of(context).size;
-        widget.controller.add(1);
+        // widget.controller.add(1);
+        widget.controller.add(widget.parentKey);
 
         // final offset = screenSize.width * (1.0 - widget.cellSize?.width);
         final offset = screenSize.width;
@@ -538,8 +545,8 @@ class FlipTileState extends State<FlipTile>
 
         final diff = (_freshPosition - _startPosition).dx;
 
-        if (widget.unfoldDirection == SwipeDirection.right) {
-          if (swipeDirection == SwipeDirection.right) {
+        if (widget.unfoldDirection == SwipeDirection.left) {
+          if (swipeDirection == SwipeDirection.left) {
             //left
             _animationController.value = -(_offsetValue +
                 diff /
@@ -550,10 +557,10 @@ class FlipTileState extends State<FlipTile>
                 (_offsetValue - diff / screenSize.width);
           }
         } else {
-          if (swipeDirection == SwipeDirection.left) {
+          if (swipeDirection == SwipeDirection.right) {
             //left
             _animationController.value =
-                -(_offsetValue + diff / screenSize.width);
+                (_offsetValue + diff / screenSize.width);
           } else {
             _animationController.value =
                 (_offsetValue - diff / screenSize.width);
@@ -623,11 +630,16 @@ class FlipTileState extends State<FlipTile>
                       child: OverflowBox(
                         minWidth: cellWidth,
                         maxWidth: cellWidth * 2,
-                        alignment: Alignment.centerRight,
+                        alignment: widget.unfoldDirection == SwipeDirection.left
+                            ? Alignment.centerLeft
+                            : Alignment.centerRight,
                         child: ClipRect(
                           child: Align(
                             widthFactor: 0.5,
-                            alignment: Alignment.centerRight,
+                            alignment:
+                                widget.unfoldDirection == SwipeDirection.left
+                                    ? Alignment.centerLeft
+                                    : Alignment.centerRight,
                             child: widget.innerWidget,
                           ),
                         ),
@@ -635,7 +647,9 @@ class FlipTileState extends State<FlipTile>
                     ),
                   ),
                   Transform(
-                    alignment: Alignment.centerLeft, //centerLeft
+                    alignment: widget.unfoldDirection == SwipeDirection.left
+                        ? Alignment.centerLeft
+                        : Alignment.centerRight, //centerLeft
                     transform: Matrix4.identity()
                       ..setEntry(3, 2, 0.001)
                       ..rotateY(widget.unfoldDirection == SwipeDirection.left
@@ -658,11 +672,17 @@ class FlipTileState extends State<FlipTile>
                           child: OverflowBox(
                             minWidth: cellWidth,
                             maxWidth: cellWidth * 2,
-                            alignment: Alignment.centerLeft,
+                            alignment:
+                                widget.unfoldDirection == SwipeDirection.left
+                                    ? Alignment.centerLeft
+                                    : Alignment.centerRight,
                             child: ClipRect(
                               child: Align(
                                 widthFactor: 0.5,
-                                alignment: Alignment.centerLeft,
+                                alignment: widget.unfoldDirection ==
+                                        SwipeDirection.left
+                                    ? Alignment.centerLeft
+                                    : Alignment.centerRight,
                                 child: widget.innerWidget,
                               ),
                             ),
