@@ -216,7 +216,6 @@ class Second extends StatelessWidget {
               MediaQuery.of(context).size.width / 2),
           padding: EdgeInsets.all(0),
           animationDuration: Duration(milliseconds: 300),
-          borderRadius: 10,
           onOpen: () {
             print('cell opened : ');
           },
@@ -224,6 +223,8 @@ class Second extends StatelessWidget {
             print('cell closed : ');
           },
           controller: controller,
+          unfoldDirection: SwipeDirection.left,
+          parentKey: key,
         ),
         FlipTile(
           key: GlobalKey<FlipTileState>(),
@@ -233,7 +234,6 @@ class Second extends StatelessWidget {
               MediaQuery.of(context).size.width / 2),
           padding: EdgeInsets.all(0),
           animationDuration: Duration(milliseconds: 300),
-          borderRadius: 10,
           onOpen: () {
             print('cell opened : ');
           },
@@ -241,6 +241,8 @@ class Second extends StatelessWidget {
             print('cell closed : ');
           },
           controller: controller,
+          unfoldDirection: SwipeDirection.left,
+          parentKey: key,
         ),
         FlipTile(
           key: GlobalKey<FlipTileState>(),
@@ -250,7 +252,6 @@ class Second extends StatelessWidget {
               MediaQuery.of(context).size.width / 2),
           padding: EdgeInsets.all(0),
           animationDuration: Duration(milliseconds: 300),
-          borderRadius: 10,
           onOpen: () {
             print('cell opened : ');
           },
@@ -258,6 +259,8 @@ class Second extends StatelessWidget {
             print('cell closed : ');
           },
           controller: controller,
+          unfoldDirection: SwipeDirection.left,
+          parentKey: key,
         )
       ],
     );
@@ -333,7 +336,6 @@ class First extends StatelessWidget {
                     MediaQuery.of(context).size.width / 2),
                 padding: EdgeInsets.all(0),
                 animationDuration: Duration(milliseconds: 300),
-                // borderRadius: 10,
                 onOpen: () {
                   print('cell opened : ');
                 },
@@ -352,7 +354,6 @@ class First extends StatelessWidget {
                     MediaQuery.of(context).size.width / 2),
                 padding: EdgeInsets.all(0),
                 animationDuration: Duration(milliseconds: 300),
-                borderRadius: 10,
                 onOpen: () {
                   print('cell opened : ');
                 },
@@ -360,6 +361,8 @@ class First extends StatelessWidget {
                   print('cell closed : ');
                 },
                 controller: controller,
+                unfoldDirection: SwipeDirection.right,
+                parentKey: key,
               ),
               FlipTile(
                 key: GlobalKey<FlipTileState>(),
@@ -369,7 +372,6 @@ class First extends StatelessWidget {
                     MediaQuery.of(context).size.width / 2),
                 padding: EdgeInsets.all(0),
                 animationDuration: Duration(milliseconds: 300),
-                borderRadius: 10,
                 onOpen: () {
                   print('cell opened : ');
                 },
@@ -377,6 +379,8 @@ class First extends StatelessWidget {
                   print('cell closed :');
                 },
                 controller: controller,
+                unfoldDirection: SwipeDirection.right,
+                parentKey: key,
               ),
               FlipTile(
                 key: GlobalKey<FlipTileState>(),
@@ -386,7 +390,6 @@ class First extends StatelessWidget {
                     MediaQuery.of(context).size.width / 2),
                 padding: EdgeInsets.all(0),
                 animationDuration: Duration(milliseconds: 300),
-                borderRadius: 10,
                 onOpen: () {
                   print('cell opened : ');
                 },
@@ -394,6 +397,8 @@ class First extends StatelessWidget {
                   print('cell closed : ');
                 },
                 controller: controller,
+                unfoldDirection: SwipeDirection.right,
+                parentKey: key,
               )
             ],
           ),
