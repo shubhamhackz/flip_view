@@ -38,8 +38,8 @@ class _FlipViewState extends State<FlipView> {
     super.initState();
     _keys = [GlobalKey(), GlobalKey()];
     _widgets = [
-      First(controller: activeColumnController, key: _keys[0]),
-      Second(controller: activeColumnController, key: _keys[1]),
+      FirstColumn(controller: activeColumnController, key: _keys[0]),
+      SecondColumn(controller: activeColumnController, key: _keys[1]),
     ];
   }
 
@@ -87,8 +87,8 @@ class _FlipViewState extends State<FlipView> {
   }
 }
 
-class First extends StatelessWidget {
-  const First({
+class FirstColumn extends StatelessWidget {
+  const FirstColumn({
     Key key,
     this.controller,
   }) : super(key: key);
@@ -97,73 +97,63 @@ class First extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      left: 0,
-      child: Container(
-        // width: 200,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              width: 400,
-            ),
-            FlipTile(
-              key: GlobalKey<FlipTileState>(),
-              frontWidget: BuildFrontWidget(asset: 'assets/daria.png'),
-              innerWidget: BuildInnerWidget(name: 'daria'),
-              cellSize: Size(MediaQuery.of(context).size.width / 2,
-                  MediaQuery.of(context).size.width / 2),
-              padding: EdgeInsets.all(0),
-              animationDuration: Duration(milliseconds: 300),
-              controller: controller,
-              unfoldDirection: SwipeDirection.right,
-              parentKey: key,
-            ),
-            FlipTile(
-              key: GlobalKey<FlipTileState>(),
-              frontWidget: BuildFrontWidget(asset: 'assets/anastasia.png'),
-              innerWidget: BuildInnerWidget(name: 'anastasia'),
-              cellSize: Size(MediaQuery.of(context).size.width / 2,
-                  MediaQuery.of(context).size.width / 2),
-              padding: EdgeInsets.all(0),
-              animationDuration: Duration(milliseconds: 300),
-              controller: controller,
-              unfoldDirection: SwipeDirection.right,
-              parentKey: key,
-            ),
-            FlipTile(
-              key: GlobalKey<FlipTileState>(),
-              frontWidget: BuildFrontWidget(asset: 'assets/kate.png'),
-              innerWidget: BuildInnerWidget(name: 'kate'),
-              cellSize: Size(MediaQuery.of(context).size.width / 2,
-                  MediaQuery.of(context).size.width / 2),
-              padding: EdgeInsets.all(0),
-              animationDuration: Duration(milliseconds: 300),
-              controller: controller,
-              unfoldDirection: SwipeDirection.right,
-              parentKey: key,
-            ),
-            FlipTile(
-              key: GlobalKey<FlipTileState>(),
-              frontWidget: BuildFrontWidget(asset: 'assets/kirill.png'),
-              innerWidget: BuildInnerWidget(name: 'kirill'),
-              cellSize: Size(MediaQuery.of(context).size.width / 2,
-                  MediaQuery.of(context).size.width / 2),
-              padding: EdgeInsets.all(0),
-              animationDuration: Duration(milliseconds: 300),
-              controller: controller,
-              unfoldDirection: SwipeDirection.right,
-              parentKey: key,
-            )
-          ],
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: 400,
         ),
-      ),
+        FlipTile(
+          key: GlobalKey<FlipTileState>(),
+          frontWidget: BuildFrontWidget(asset: 'assets/daria.png'),
+          innerWidget: BuildInnerWidget(name: 'daria'),
+          cellSize: Size(MediaQuery.of(context).size.width / 2,
+              MediaQuery.of(context).size.width / 2),
+          animationDuration: Duration(milliseconds: 300),
+          controller: controller,
+          unfoldDirection: SwipeDirection.right,
+          parentKey: key,
+        ),
+        FlipTile(
+          key: GlobalKey<FlipTileState>(),
+          frontWidget: BuildFrontWidget(asset: 'assets/anastasia.png'),
+          innerWidget: BuildInnerWidget(name: 'anastasia'),
+          cellSize: Size(MediaQuery.of(context).size.width / 2,
+              MediaQuery.of(context).size.width / 2),
+          animationDuration: Duration(milliseconds: 300),
+          controller: controller,
+          unfoldDirection: SwipeDirection.right,
+          parentKey: key,
+        ),
+        FlipTile(
+          key: GlobalKey<FlipTileState>(),
+          frontWidget: BuildFrontWidget(asset: 'assets/kate.png'),
+          innerWidget: BuildInnerWidget(name: 'kate'),
+          cellSize: Size(MediaQuery.of(context).size.width / 2,
+              MediaQuery.of(context).size.width / 2),
+          animationDuration: Duration(milliseconds: 300),
+          controller: controller,
+          unfoldDirection: SwipeDirection.right,
+          parentKey: key,
+        ),
+        FlipTile(
+          key: GlobalKey<FlipTileState>(),
+          frontWidget: BuildFrontWidget(asset: 'assets/kirill.png'),
+          innerWidget: BuildInnerWidget(name: 'kirill'),
+          cellSize: Size(MediaQuery.of(context).size.width / 2,
+              MediaQuery.of(context).size.width / 2),
+          animationDuration: Duration(milliseconds: 300),
+          controller: controller,
+          unfoldDirection: SwipeDirection.right,
+          parentKey: key,
+        )
+      ],
     );
   }
 }
 
-class Second extends StatelessWidget {
-  const Second({
+class SecondColumn extends StatelessWidget {
+  const SecondColumn({
     Key key,
     this.controller,
   }) : super(key: key);
@@ -172,69 +162,60 @@ class Second extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      right: 0,
-      child: Container(
-        // width: 200,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            SizedBox(
-              width: 400,
-            ),
-            FlipTile(
-              key: GlobalKey<FlipTileState>(),
-              frontWidget: BuildFrontWidget(asset: 'assets/irene.png'),
-              innerWidget: BuildInnerWidget(name: 'irene'),
-              cellSize: Size(MediaQuery.of(context).size.width / 2,
-                  MediaQuery.of(context).size.width / 2),
-              padding: EdgeInsets.all(0),
-              animationDuration: Duration(milliseconds: 300),
-              // borderRadius: 10,
-
-              controller: controller,
-              unfoldDirection: SwipeDirection.left,
-              parentKey: key,
-            ),
-            FlipTile(
-              key: GlobalKey<FlipTileState>(),
-              frontWidget: BuildFrontWidget(asset: 'assets/julia.png'),
-              innerWidget: BuildInnerWidget(name: 'julia'),
-              cellSize: Size(MediaQuery.of(context).size.width / 2,
-                  MediaQuery.of(context).size.width / 2),
-              padding: EdgeInsets.all(0),
-              animationDuration: Duration(milliseconds: 300),
-              controller: controller,
-              unfoldDirection: SwipeDirection.left,
-              parentKey: key,
-            ),
-            FlipTile(
-              key: GlobalKey<FlipTileState>(),
-              frontWidget: BuildFrontWidget(asset: 'assets/paul.png'),
-              innerWidget: BuildInnerWidget(name: 'paul'),
-              cellSize: Size(MediaQuery.of(context).size.width / 2,
-                  MediaQuery.of(context).size.width / 2),
-              padding: EdgeInsets.all(0),
-              animationDuration: Duration(milliseconds: 300),
-              controller: controller,
-              unfoldDirection: SwipeDirection.left,
-              parentKey: key,
-            ),
-            FlipTile(
-              key: GlobalKey<FlipTileState>(),
-              frontWidget: BuildFrontWidget(asset: 'assets/irene.png'),
-              innerWidget: BuildInnerWidget(name: 'irene'),
-              cellSize: Size(MediaQuery.of(context).size.width / 2,
-                  MediaQuery.of(context).size.width / 2),
-              padding: EdgeInsets.all(0),
-              animationDuration: Duration(milliseconds: 300),
-              controller: controller,
-              unfoldDirection: SwipeDirection.left,
-              parentKey: key,
-            )
-          ],
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        SizedBox(
+          width: 400,
         ),
-      ),
+        FlipTile(
+          key: GlobalKey<FlipTileState>(),
+          frontWidget: BuildFrontWidget(asset: 'assets/irene.png'),
+          innerWidget: BuildInnerWidget(name: 'irene'),
+          cellSize: Size(MediaQuery.of(context).size.width / 2,
+              MediaQuery.of(context).size.width / 2),
+
+          animationDuration: Duration(milliseconds: 300),
+          // borderRadius: 10,
+
+          controller: controller,
+          unfoldDirection: SwipeDirection.left,
+          parentKey: key,
+        ),
+        FlipTile(
+          key: GlobalKey<FlipTileState>(),
+          frontWidget: BuildFrontWidget(asset: 'assets/julia.png'),
+          innerWidget: BuildInnerWidget(name: 'julia'),
+          cellSize: Size(MediaQuery.of(context).size.width / 2,
+              MediaQuery.of(context).size.width / 2),
+          animationDuration: Duration(milliseconds: 300),
+          controller: controller,
+          unfoldDirection: SwipeDirection.left,
+          parentKey: key,
+        ),
+        FlipTile(
+          key: GlobalKey<FlipTileState>(),
+          frontWidget: BuildFrontWidget(asset: 'assets/paul.png'),
+          innerWidget: BuildInnerWidget(name: 'paul'),
+          cellSize: Size(MediaQuery.of(context).size.width / 2,
+              MediaQuery.of(context).size.width / 2),
+          animationDuration: Duration(milliseconds: 300),
+          controller: controller,
+          unfoldDirection: SwipeDirection.left,
+          parentKey: key,
+        ),
+        FlipTile(
+          key: GlobalKey<FlipTileState>(),
+          frontWidget: BuildFrontWidget(asset: 'assets/irene.png'),
+          innerWidget: BuildInnerWidget(name: 'irene'),
+          cellSize: Size(MediaQuery.of(context).size.width / 2,
+              MediaQuery.of(context).size.width / 2),
+          animationDuration: Duration(milliseconds: 300),
+          controller: controller,
+          unfoldDirection: SwipeDirection.left,
+          parentKey: key,
+        )
+      ],
     );
   }
 }
@@ -348,9 +329,6 @@ class FlipTile extends StatefulWidget {
     @required this.frontWidget,
     @required this.innerWidget,
     this.cellSize = const Size(100.0, 100.0),
-    this.unfoldCell = false,
-    this.padding =
-        const EdgeInsets.only(left: 20, right: 20, bottom: 5, top: 10),
     this.animationDuration = const Duration(milliseconds: 500),
     this.borderRadius = 0.0,
     this.unfoldDirection,
@@ -359,8 +337,6 @@ class FlipTile extends StatefulWidget {
   })  : assert(frontWidget != null),
         assert(innerWidget != null),
         assert(cellSize != null),
-        assert(unfoldCell != null),
-        assert(padding != null),
         assert(animationDuration != null),
         assert(borderRadius != null && borderRadius >= 0.0),
         super(key: key);
@@ -376,12 +352,6 @@ class FlipTile extends StatefulWidget {
 
   /// Size of cell
   final Size cellSize;
-
-  /// If true cell will be unfolded when created, if false cell will be folded when created
-  final bool unfoldCell;
-
-  /// Padding around cell
-  final EdgeInsetsGeometry padding;
 
   /// Animation duration
   final Duration animationDuration;
@@ -522,116 +492,113 @@ class FlipTileState extends State<FlipTile>
           final cellWidth = widget.cellSize?.width;
           final cellHeight = widget.cellSize?.height;
 
-          return Padding(
-            padding: widget.padding,
-            child: Container(
-              alignment: widget.unfoldDirection == SwipeDirection.left
-                  ? Alignment.centerRight
-                  : Alignment.centerLeft, //centerRight
-              color: Colors.transparent,
-              width: cellWidth + (cellWidth * _animationController.value),
-              height: cellHeight,
-              child: Stack(
-                children: <Widget>[
-                  ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(widget.borderRadius),
-                      topRight: Radius.circular(widget.borderRadius),
-                    ),
-                    child: Container(
-                      width: cellWidth,
-                      height: cellHeight,
-                      alignment: Alignment.center,
-                      child: OverflowBox(
-                        minWidth: cellWidth,
-                        maxWidth: cellWidth * 2,
-                        alignment: widget.unfoldDirection == SwipeDirection.left
-                            ? Alignment.centerLeft
-                            : Alignment.centerRight,
-                        child: ClipRect(
-                          child: Align(
-                            widthFactor: 0.5,
-                            alignment:
-                                widget.unfoldDirection == SwipeDirection.left
-                                    ? Alignment.centerRight
-                                    : Alignment.centerLeft,
-                            child: widget.innerWidget,
-                          ),
+          return Container(
+            alignment: widget.unfoldDirection == SwipeDirection.left
+                ? Alignment.centerRight
+                : Alignment.centerLeft, //centerRight
+            color: Colors.transparent,
+            width: cellWidth + (cellWidth * _animationController.value),
+            height: cellHeight,
+            child: Stack(
+              children: <Widget>[
+                ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(widget.borderRadius),
+                    topRight: Radius.circular(widget.borderRadius),
+                  ),
+                  child: Container(
+                    width: cellWidth,
+                    height: cellHeight,
+                    alignment: Alignment.center,
+                    child: OverflowBox(
+                      minWidth: cellWidth,
+                      maxWidth: cellWidth * 2,
+                      alignment: widget.unfoldDirection == SwipeDirection.left
+                          ? Alignment.centerLeft
+                          : Alignment.centerRight,
+                      child: ClipRect(
+                        child: Align(
+                          widthFactor: 0.5,
+                          alignment:
+                              widget.unfoldDirection == SwipeDirection.left
+                                  ? Alignment.centerRight
+                                  : Alignment.centerLeft,
+                          child: widget.innerWidget,
                         ),
                       ),
                     ),
                   ),
-                  Transform(
-                    alignment: widget.unfoldDirection == SwipeDirection.left
-                        ? Alignment.centerLeft
-                        : Alignment.centerRight, //centerLeft
-                    transform: Matrix4.identity()
-                      ..setEntry(3, 2, 0.001)
-                      ..rotateY(widget.unfoldDirection == SwipeDirection.left
-                          ? angle
-                          : -angle), //angle
-                    child: Transform(
-                      alignment: Alignment.center,
-                      transform: Matrix4.rotationY(
-                          widget.unfoldDirection == SwipeDirection.left
-                              ? pi
-                              : -pi), //pi
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(widget.borderRadius),
-                          // bottomRight: Radius.circular(widget.borderRadius),
-                        ),
-                        child: Container(
-                          width: cellWidth,
-                          height: cellHeight,
-                          child: OverflowBox(
-                            minWidth: cellWidth,
-                            maxWidth: cellWidth * 2,
-                            alignment:
-                                widget.unfoldDirection == SwipeDirection.left
-                                    ? Alignment.centerLeft
-                                    : Alignment.centerRight,
-                            child: ClipRect(
-                              child: Align(
-                                // widthFactor: 0.5,
-                                alignment: widget.unfoldDirection ==
-                                        SwipeDirection.left
-                                    ? Alignment.centerRight
-                                    : Alignment.centerLeft,
-                                child: widget.innerWidget,
-                              ),
+                ),
+                Transform(
+                  alignment: widget.unfoldDirection == SwipeDirection.left
+                      ? Alignment.centerLeft
+                      : Alignment.centerRight, //centerLeft
+                  transform: Matrix4.identity()
+                    ..setEntry(3, 2, 0.001)
+                    ..rotateY(widget.unfoldDirection == SwipeDirection.left
+                        ? angle
+                        : -angle), //angle
+                  child: Transform(
+                    alignment: Alignment.center,
+                    transform: Matrix4.rotationY(
+                        widget.unfoldDirection == SwipeDirection.left
+                            ? pi
+                            : -pi), //pi
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(widget.borderRadius),
+                        // bottomRight: Radius.circular(widget.borderRadius),
+                      ),
+                      child: Container(
+                        width: cellWidth,
+                        height: cellHeight,
+                        child: OverflowBox(
+                          minWidth: cellWidth,
+                          maxWidth: cellWidth * 2,
+                          alignment:
+                              widget.unfoldDirection == SwipeDirection.left
+                                  ? Alignment.centerLeft
+                                  : Alignment.centerRight,
+                          child: ClipRect(
+                            child: Align(
+                              // widthFactor: 0.5,
+                              alignment:
+                                  widget.unfoldDirection == SwipeDirection.left
+                                      ? Alignment.centerRight
+                                      : Alignment.centerLeft,
+                              child: widget.innerWidget,
                             ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                  Transform(
-                    alignment: widget.unfoldDirection == SwipeDirection.left
-                        ? Alignment.centerLeft
-                        : Alignment.centerRight, //centerLeft
-                    transform: Matrix4.identity()
-                      ..setEntry(3, 2, 0.001)
-                      ..rotateY(widget.unfoldDirection == SwipeDirection.left
-                          ? angle
-                          : -angle), //angle
-                    child: Opacity(
-                      opacity: angle >= 1.5708 ? 0.0 : 1.0,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.only(
-                            // topLeft: Radius.circular(widget.borderRadius),
-                            // topRight: Radius.circular(widget.borderRadius),
-                            ),
-                        child: Container(
-                          width: angle >= 1.5708 ? 0.0 : cellWidth,
-                          height: angle >= 1.5708 ? 0.0 : cellHeight,
-                          child: widget.frontWidget,
-                        ),
+                ),
+                Transform(
+                  alignment: widget.unfoldDirection == SwipeDirection.left
+                      ? Alignment.centerLeft
+                      : Alignment.centerRight, //centerLeft
+                  transform: Matrix4.identity()
+                    ..setEntry(3, 2, 0.001)
+                    ..rotateY(widget.unfoldDirection == SwipeDirection.left
+                        ? angle
+                        : -angle), //angle
+                  child: Opacity(
+                    opacity: angle >= 1.5708 ? 0.0 : 1.0,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.only(
+                          // topLeft: Radius.circular(widget.borderRadius),
+                          // topRight: Radius.circular(widget.borderRadius),
+                          ),
+                      child: Container(
+                        width: angle >= 1.5708 ? 0.0 : cellWidth,
+                        height: angle >= 1.5708 ? 0.0 : cellHeight,
+                        child: widget.frontWidget,
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           );
         },
