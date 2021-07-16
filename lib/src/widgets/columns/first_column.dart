@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flip_view/src/config/device_config.dart';
 import 'package:flip_view/src/flip_tile/flip_tile.dart';
 import 'package:flip_view/src/widgets/front_widget.dart';
 import 'package:flip_view/src/widgets/inner_widget.dart';
@@ -19,14 +20,13 @@ class FirstColumn extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          width: 400,
+          width: width,
         ),
         FlipTile(
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/daria.png'),
           innerWidget: BuildInnerWidget(name: 'daria'),
-          tileSize: Size(MediaQuery.of(context).size.width / 2,
-              MediaQuery.of(context).size.width / 2),
+          tileSize: Size(width / 2, width / 2),
           animationDuration: Duration(milliseconds: 300),
           stackController: controller,
           unfoldDirection: SwipeDirection.right,
@@ -36,8 +36,7 @@ class FirstColumn extends StatelessWidget {
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/anastasia.png'),
           innerWidget: BuildInnerWidget(name: 'anastasia'),
-          tileSize: Size(MediaQuery.of(context).size.width / 2,
-              MediaQuery.of(context).size.width / 2),
+          tileSize: Size(width / 2, width / 2),
           animationDuration: Duration(milliseconds: 300),
           stackController: controller,
           unfoldDirection: SwipeDirection.right,
@@ -47,8 +46,7 @@ class FirstColumn extends StatelessWidget {
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/kate.png'),
           innerWidget: BuildInnerWidget(name: 'kate'),
-          tileSize: Size(MediaQuery.of(context).size.width / 2,
-              MediaQuery.of(context).size.width / 2),
+          tileSize: Size(width / 2, width / 2),
           animationDuration: Duration(milliseconds: 300),
           stackController: controller,
           unfoldDirection: SwipeDirection.right,
@@ -58,8 +56,7 @@ class FirstColumn extends StatelessWidget {
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/kirill.png'),
           innerWidget: BuildInnerWidget(name: 'kirill'),
-          tileSize: Size(MediaQuery.of(context).size.width / 2,
-              MediaQuery.of(context).size.width / 2),
+          tileSize: Size(width / 2, width / 2),
           animationDuration: Duration(milliseconds: 300),
           stackController: controller,
           unfoldDirection: SwipeDirection.right,

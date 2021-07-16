@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flip_view/src/config/device_config.dart';
 import 'package:flutter/material.dart';
 
 import 'columns/first_column.dart';
@@ -40,31 +41,30 @@ class _FlipViewState extends State<FlipView> {
 
   @override
   Widget build(BuildContext context) {
+    //initialize width and height
+    width = MediaQuery.of(context).size.width;
+    height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flip View'),
+        title: Text('Find Friends'),
+        centerTitle: true,
+        backgroundColor: const Color(0xFF1e252b),
       ),
       body: SingleChildScrollView(
         child: StreamBuilder<Key>(
-            stream: stackController.stream,
-            builder: (context, snapshot) {
-              if (snapshot.data != null) {
-                if (snapshot.data == _widgets[0].key) {
-                  _swap(1, 0);
-                }
+          stream: stackController.stream,
+          builder: (context, snapshot) {
+            if (snapshot.data != null) {
+              if (snapshot.data == _widgets[0].key) {
+                _swap(1, 0);
               }
-              print('Widgets : $_widgets');
-              return Container(
-                height: 800,
-                color: Color(0xFF2e282a),
-                child: Container(
-                  width: 800,
-                  child: Stack(
-                    children: [..._widgets],
-                  ),
-                ),
-              );
-            }),
+            }
+            print('Widgets : $_widgets');
+            return Stack(
+              children: [..._widgets],
+            );
+          },
+        ),
       ),
     );
   }

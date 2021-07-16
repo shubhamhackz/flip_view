@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flip_view/src/config/device_config.dart';
 import 'package:flip_view/src/flip_tile/flip_tile.dart';
 import 'package:flip_view/src/widgets/front_widget.dart';
 import 'package:flutter/material.dart';
@@ -20,14 +21,13 @@ class SecondColumn extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         SizedBox(
-          width: 400,
+          width: width,
         ),
         FlipTile(
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/irene.png'),
           innerWidget: BuildInnerWidget(name: 'irene'),
-          tileSize: Size(MediaQuery.of(context).size.width / 2,
-              MediaQuery.of(context).size.width / 2),
+          tileSize: Size(width / 2, width / 2),
 
           animationDuration: Duration(milliseconds: 300),
           // borderRadius: 10,
@@ -40,8 +40,7 @@ class SecondColumn extends StatelessWidget {
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/julia.png'),
           innerWidget: BuildInnerWidget(name: 'julia'),
-          tileSize: Size(MediaQuery.of(context).size.width / 2,
-              MediaQuery.of(context).size.width / 2),
+          tileSize: Size(width / 2, width / 2),
           animationDuration: Duration(milliseconds: 300),
           stackController: controller,
           unfoldDirection: SwipeDirection.left,
@@ -51,8 +50,7 @@ class SecondColumn extends StatelessWidget {
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/paul.png'),
           innerWidget: BuildInnerWidget(name: 'paul'),
-          tileSize: Size(MediaQuery.of(context).size.width / 2,
-              MediaQuery.of(context).size.width / 2),
+          tileSize: Size(width / 2, width / 2),
           animationDuration: Duration(milliseconds: 300),
           stackController: controller,
           unfoldDirection: SwipeDirection.left,
@@ -62,8 +60,7 @@ class SecondColumn extends StatelessWidget {
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/irene.png'),
           innerWidget: BuildInnerWidget(name: 'irene'),
-          tileSize: Size(MediaQuery.of(context).size.width / 2,
-              MediaQuery.of(context).size.width / 2),
+          tileSize: Size(width / 2, width / 2),
           animationDuration: Duration(milliseconds: 300),
           stackController: controller,
           unfoldDirection: SwipeDirection.left,

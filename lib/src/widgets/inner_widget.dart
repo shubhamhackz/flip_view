@@ -1,3 +1,4 @@
+import 'package:flip_view/src/config/device_config.dart';
 import 'package:flutter/material.dart';
 
 class BuildInnerWidget extends StatelessWidget {
@@ -12,7 +13,7 @@ class BuildInnerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.yellow,
-      width: 400,
+      width: width,
       padding: EdgeInsets.only(top: 10),
       child: Stack(
         children: [

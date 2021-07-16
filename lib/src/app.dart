@@ -1,4 +1,3 @@
-import 'package:flip_view/main.dart';
 import 'package:flip_view/src/widgets/flip_view.dart';
 import 'package:flutter/material.dart';
 
