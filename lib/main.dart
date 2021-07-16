@@ -34,7 +34,7 @@ class _FlipViewState extends State<FlipView> {
 
   @override
   void initState() {
-    activeColumnController = StreamController();
+    activeColumnController = StreamController.broadcast();
     super.initState();
     _keys = [GlobalKey(), GlobalKey()];
     _widgets = [
@@ -173,6 +173,105 @@ class _FlipViewState extends State<FlipView> {
   }
 }
 
+class First extends StatelessWidget {
+  const First({
+    Key key,
+    this.controller,
+  }) : super(key: key);
+
+  final StreamController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      left: 0,
+      child: Container(
+        // width: 200,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: 400,
+            ),
+            FlipTile(
+              key: GlobalKey<FlipTileState>(),
+              frontWidget: BuildFrontWidget(asset: 'assets/daria.png'),
+              innerWidget: BuildInnerWidget(name: 'daria'),
+              cellSize: Size(MediaQuery.of(context).size.width / 2,
+                  MediaQuery.of(context).size.width / 2),
+              padding: EdgeInsets.all(0),
+              animationDuration: Duration(milliseconds: 300),
+              onOpen: () {
+                print('cell opened : ');
+              },
+              onClose: () {
+                print('cell closed :');
+              },
+              controller: controller,
+              unfoldDirection: SwipeDirection.right,
+              parentKey: key,
+            ),
+            FlipTile(
+              key: GlobalKey<FlipTileState>(),
+              frontWidget: BuildFrontWidget(asset: 'assets/anastasia.png'),
+              innerWidget: BuildInnerWidget(name: 'anastasia'),
+              cellSize: Size(MediaQuery.of(context).size.width / 2,
+                  MediaQuery.of(context).size.width / 2),
+              padding: EdgeInsets.all(0),
+              animationDuration: Duration(milliseconds: 300),
+              onOpen: () {
+                print('cell opened : ');
+              },
+              onClose: () {
+                print('cell closed : ');
+              },
+              controller: controller,
+              unfoldDirection: SwipeDirection.right,
+              parentKey: key,
+            ),
+            FlipTile(
+              key: GlobalKey<FlipTileState>(),
+              frontWidget: BuildFrontWidget(asset: 'assets/kate.png'),
+              innerWidget: BuildInnerWidget(name: 'kate'),
+              cellSize: Size(MediaQuery.of(context).size.width / 2,
+                  MediaQuery.of(context).size.width / 2),
+              padding: EdgeInsets.all(0),
+              animationDuration: Duration(milliseconds: 300),
+              onOpen: () {
+                print('cell opened : ');
+              },
+              onClose: () {
+                print('cell closed :');
+              },
+              controller: controller,
+              unfoldDirection: SwipeDirection.right,
+              parentKey: key,
+            ),
+            FlipTile(
+              key: GlobalKey<FlipTileState>(),
+              frontWidget: BuildFrontWidget(asset: 'assets/kirill.png'),
+              innerWidget: BuildInnerWidget(name: 'kirill'),
+              cellSize: Size(MediaQuery.of(context).size.width / 2,
+                  MediaQuery.of(context).size.width / 2),
+              padding: EdgeInsets.all(0),
+              animationDuration: Duration(milliseconds: 300),
+              onOpen: () {
+                print('cell opened : ');
+              },
+              onClose: () {
+                print('cell closed : ');
+              },
+              controller: controller,
+              unfoldDirection: SwipeDirection.right,
+              parentKey: key,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class Second extends StatelessWidget {
   const Second({
     Key key,
@@ -183,86 +282,92 @@ class Second extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        SizedBox(
-          width: 400,
+    return Positioned(
+      right: 0,
+      child: Container(
+        // width: 200,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            SizedBox(
+              width: 400,
+            ),
+            FlipTile(
+              key: GlobalKey<FlipTileState>(),
+              frontWidget: BuildFrontWidget(asset: 'assets/irene.png'),
+              innerWidget: BuildInnerWidget(name: 'irene'),
+              cellSize: Size(MediaQuery.of(context).size.width / 2,
+                  MediaQuery.of(context).size.width / 2),
+              padding: EdgeInsets.all(0),
+              animationDuration: Duration(milliseconds: 300),
+              // borderRadius: 10,
+              onOpen: () {
+                print('cell opened : ');
+              },
+              onClose: () {
+                print('cell closed :');
+              },
+              controller: controller,
+              unfoldDirection: SwipeDirection.left,
+              parentKey: key,
+            ),
+            FlipTile(
+              key: GlobalKey<FlipTileState>(),
+              frontWidget: BuildFrontWidget(asset: 'assets/julia.png'),
+              innerWidget: BuildInnerWidget(name: 'julia'),
+              cellSize: Size(MediaQuery.of(context).size.width / 2,
+                  MediaQuery.of(context).size.width / 2),
+              padding: EdgeInsets.all(0),
+              animationDuration: Duration(milliseconds: 300),
+              onOpen: () {
+                print('cell opened : ');
+              },
+              onClose: () {
+                print('cell closed : ');
+              },
+              controller: controller,
+              unfoldDirection: SwipeDirection.left,
+              parentKey: key,
+            ),
+            FlipTile(
+              key: GlobalKey<FlipTileState>(),
+              frontWidget: BuildFrontWidget(asset: 'assets/paul.png'),
+              innerWidget: BuildInnerWidget(name: 'paul'),
+              cellSize: Size(MediaQuery.of(context).size.width / 2,
+                  MediaQuery.of(context).size.width / 2),
+              padding: EdgeInsets.all(0),
+              animationDuration: Duration(milliseconds: 300),
+              onOpen: () {
+                print('cell opened : ');
+              },
+              onClose: () {
+                print('cell closed : ');
+              },
+              controller: controller,
+              unfoldDirection: SwipeDirection.left,
+              parentKey: key,
+            ),
+            FlipTile(
+              key: GlobalKey<FlipTileState>(),
+              frontWidget: BuildFrontWidget(asset: 'assets/irene.png'),
+              innerWidget: BuildInnerWidget(name: 'irene'),
+              cellSize: Size(MediaQuery.of(context).size.width / 2,
+                  MediaQuery.of(context).size.width / 2),
+              padding: EdgeInsets.all(0),
+              animationDuration: Duration(milliseconds: 300),
+              onOpen: () {
+                print('cell opened : ');
+              },
+              onClose: () {
+                print('cell closed : ');
+              },
+              controller: controller,
+              unfoldDirection: SwipeDirection.left,
+              parentKey: key,
+            )
+          ],
         ),
-        FlipTile(
-          key: GlobalKey<FlipTileState>(),
-          frontWidget: BuildFrontWidget(asset: 'assets/irene.png'),
-          innerWidget: BuildInnerWidget(name: 'irene'),
-          cellSize: Size(MediaQuery.of(context).size.width / 2,
-              MediaQuery.of(context).size.width / 2),
-          padding: EdgeInsets.all(0),
-          animationDuration: Duration(milliseconds: 300),
-          // borderRadius: 10,
-          onOpen: () {
-            print('cell opened : ');
-          },
-          onClose: () {
-            print('cell closed :');
-          },
-          controller: controller,
-          unfoldDirection: SwipeDirection.left,
-          parentKey: key,
-        ),
-        FlipTile(
-          key: GlobalKey<FlipTileState>(),
-          frontWidget: BuildFrontWidget(asset: 'assets/julia.png'),
-          innerWidget: BuildInnerWidget(name: 'julia'),
-          cellSize: Size(MediaQuery.of(context).size.width / 2,
-              MediaQuery.of(context).size.width / 2),
-          padding: EdgeInsets.all(0),
-          animationDuration: Duration(milliseconds: 300),
-          onOpen: () {
-            print('cell opened : ');
-          },
-          onClose: () {
-            print('cell closed : ');
-          },
-          controller: controller,
-          unfoldDirection: SwipeDirection.left,
-          parentKey: key,
-        ),
-        FlipTile(
-          key: GlobalKey<FlipTileState>(),
-          frontWidget: BuildFrontWidget(asset: 'assets/paul.png'),
-          innerWidget: BuildInnerWidget(name: 'paul'),
-          cellSize: Size(MediaQuery.of(context).size.width / 2,
-              MediaQuery.of(context).size.width / 2),
-          padding: EdgeInsets.all(0),
-          animationDuration: Duration(milliseconds: 300),
-          onOpen: () {
-            print('cell opened : ');
-          },
-          onClose: () {
-            print('cell closed : ');
-          },
-          controller: controller,
-          unfoldDirection: SwipeDirection.left,
-          parentKey: key,
-        ),
-        FlipTile(
-          key: GlobalKey<FlipTileState>(),
-          frontWidget: BuildFrontWidget(asset: 'assets/irene.png'),
-          innerWidget: BuildInnerWidget(name: 'irene'),
-          cellSize: Size(MediaQuery.of(context).size.width / 2,
-              MediaQuery.of(context).size.width / 2),
-          padding: EdgeInsets.all(0),
-          animationDuration: Duration(milliseconds: 300),
-          onOpen: () {
-            print('cell opened : ');
-          },
-          onClose: () {
-            print('cell closed : ');
-          },
-          controller: controller,
-          unfoldDirection: SwipeDirection.left,
-          parentKey: key,
-        )
-      ],
+      ),
     );
   }
 }
@@ -288,67 +393,69 @@ class BuildInnerWidget extends StatelessWidget {
           //   child: Text('$name shubham soni goldy'),
           // ),
           Align(
-              alignment: Alignment.center,
-              child: Column(
-                children: [
-                  Text(name),
-                  Wrap(
-                    direction: Axis.horizontal,
-                    children: [
-                      Container(
-                        width: 80,
-                        height: 20,
-                        color: Colors.black,
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Artist',
-                          style: TextStyle(color: Colors.white),
-                        ),
+            alignment: Alignment.center,
+            child: Column(
+              children: [
+                Text(name),
+                Wrap(
+                  runSpacing: 5.0,
+                  direction: Axis.horizontal,
+                  children: [
+                    Container(
+                      width: 80,
+                      height: 20,
+                      color: Colors.black,
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Artist',
+                        style: TextStyle(color: Colors.white),
                       ),
-                      Container(
-                        width: 80,
-                        height: 20,
-                        color: Colors.black,
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Litrature',
-                          style: TextStyle(color: Colors.white),
-                        ),
+                    ),
+                    Container(
+                      width: 80,
+                      height: 20,
+                      color: Colors.black,
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Litrature',
+                        style: TextStyle(color: Colors.white),
                       ),
-                      Container(
-                        width: 80,
-                        height: 20,
-                        color: Colors.black,
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Chill Music',
-                          style: TextStyle(color: Colors.white),
-                        ),
+                    ),
+                    Container(
+                      width: 80,
+                      height: 20,
+                      color: Colors.black,
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Chill Music',
+                        style: TextStyle(color: Colors.white),
                       ),
-                      Container(
-                        width: 80,
-                        height: 20,
-                        color: Colors.black,
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Artist',
-                          style: TextStyle(color: Colors.white),
-                        ),
+                    ),
+                    Container(
+                      width: 80,
+                      height: 20,
+                      color: Colors.black,
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Artist',
+                        style: TextStyle(color: Colors.white),
                       ),
-                      Container(
-                        width: 80,
-                        height: 20,
-                        color: Colors.black,
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Artist',
-                          style: TextStyle(color: Colors.white),
-                        ),
+                    ),
+                    Container(
+                      width: 80,
+                      height: 20,
+                      color: Colors.black,
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Artist',
+                        style: TextStyle(color: Colors.white),
                       ),
-                    ],
-                  ),
-                ],
-              )),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
       // child: Text(name),
@@ -369,106 +476,6 @@ class BuildFrontWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Image.asset(asset),
-    );
-  }
-}
-
-class First extends StatelessWidget {
-  const First({
-    Key key,
-    this.controller,
-  }) : super(key: key);
-
-  final StreamController controller;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: 200,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: 400,
-              ),
-              FlipTile(
-                key: GlobalKey<FlipTileState>(),
-                frontWidget: BuildFrontWidget(asset: 'assets/daria.png'),
-                innerWidget: BuildInnerWidget(name: 'daria'),
-                cellSize: Size(MediaQuery.of(context).size.width / 2,
-                    MediaQuery.of(context).size.width / 2),
-                padding: EdgeInsets.all(0),
-                animationDuration: Duration(milliseconds: 300),
-                onOpen: () {
-                  print('cell opened : ');
-                },
-                onClose: () {
-                  print('cell closed :');
-                },
-                controller: controller,
-                unfoldDirection: SwipeDirection.right,
-                parentKey: key,
-              ),
-              FlipTile(
-                key: GlobalKey<FlipTileState>(),
-                frontWidget: BuildFrontWidget(asset: 'assets/anastasia.png'),
-                innerWidget: BuildInnerWidget(name: 'anastasia'),
-                cellSize: Size(MediaQuery.of(context).size.width / 2,
-                    MediaQuery.of(context).size.width / 2),
-                padding: EdgeInsets.all(0),
-                animationDuration: Duration(milliseconds: 300),
-                onOpen: () {
-                  print('cell opened : ');
-                },
-                onClose: () {
-                  print('cell closed : ');
-                },
-                controller: controller,
-                unfoldDirection: SwipeDirection.right,
-                parentKey: key,
-              ),
-              FlipTile(
-                key: GlobalKey<FlipTileState>(),
-                frontWidget: BuildFrontWidget(asset: 'assets/kate.png'),
-                innerWidget: BuildInnerWidget(name: 'kate'),
-                cellSize: Size(MediaQuery.of(context).size.width / 2,
-                    MediaQuery.of(context).size.width / 2),
-                padding: EdgeInsets.all(0),
-                animationDuration: Duration(milliseconds: 300),
-                onOpen: () {
-                  print('cell opened : ');
-                },
-                onClose: () {
-                  print('cell closed :');
-                },
-                controller: controller,
-                unfoldDirection: SwipeDirection.right,
-                parentKey: key,
-              ),
-              FlipTile(
-                key: GlobalKey<FlipTileState>(),
-                frontWidget: BuildFrontWidget(asset: 'assets/kirill.png'),
-                innerWidget: BuildInnerWidget(name: 'kirill'),
-                cellSize: Size(MediaQuery.of(context).size.width / 2,
-                    MediaQuery.of(context).size.width / 2),
-                padding: EdgeInsets.all(0),
-                animationDuration: Duration(milliseconds: 300),
-                onOpen: () {
-                  print('cell opened : ');
-                },
-                onClose: () {
-                  print('cell closed : ');
-                },
-                controller: controller,
-                unfoldDirection: SwipeDirection.right,
-                parentKey: key,
-              )
-            ],
-          ),
-        ),
-      ],
     );
   }
 }
@@ -562,10 +569,15 @@ class FlipTileState extends State<FlipTile>
       }
     });
 
-    if (widget.unfoldCell == true) {
-      _animationController.value = 1;
-      _isExpanded = true;
-    }
+    // if (widget.unfoldCell == true) {
+    //   _animationController.value = 1;
+    //   _isExpanded = true;
+    // }
+    // _animationController.addListener(() {
+    //   if (_animationController.value > 0.6) {
+    //     _isExpanded = true;
+    //   }
+    // });
   }
 
   @override
@@ -578,10 +590,12 @@ class FlipTileState extends State<FlipTile>
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onHorizontalDragStart: (DragStartDetails details) {
+      onHorizontalDragStart: (DragStartDetails details) async {
         final screenSize = MediaQuery.of(context).size;
         // widget.controller.add(1);
+        // if (!_isExpanded) {
         widget.controller.add(widget.parentKey);
+        // }
 
         // final offset = screenSize.width * (1.0 - widget.cellSize?.width);
         final offset = screenSize.width;
@@ -673,6 +687,7 @@ class FlipTileState extends State<FlipTile>
             _animationController.forward();
           }
         }
+        _isExpanded = true;
       },
       child: AnimatedBuilder(
         animation: _animationController,
@@ -684,7 +699,9 @@ class FlipTileState extends State<FlipTile>
           return Padding(
             padding: widget.padding,
             child: Container(
-              alignment: Alignment.centerRight,
+              alignment: widget.unfoldDirection == SwipeDirection.left
+                  ? Alignment.centerRight
+                  : Alignment.centerLeft, //centerRight
               color: Colors.transparent,
               width: cellWidth + (cellWidth * _animationController.value),
               height: cellHeight,
@@ -796,41 +813,25 @@ class FlipTileState extends State<FlipTile>
     );
   }
 
-  void toggleFold() {
-    if (_isExpanded) {
-      if (widget.skipAnimation == true) {
-        _animationController.value = 0;
-      } else {
-        _animationController.forward();
-      }
-    } else {
-      if (widget.skipAnimation == true) {
-        _animationController.value = 1;
-      } else {
-        _animationController.reverse();
-      }
-    }
-    _isExpanded = !_isExpanded;
-  }
+  // void toggleFold() {
+  //   if (_isExpanded) {
+  //     if (widget.skipAnimation == true) {
+  //       _animationController.value = 0;
+  //     } else {
+  //       _animationController.forward();
+  //     }
+  //   } else {
+  //     if (widget.skipAnimation == true) {
+  //       _animationController.value = 1;
+  //     } else {
+  //       _animationController.reverse();
+  //     }
+  //   }
+  //   _isExpanded = !_isExpanded;
+  // }
 }
 
 enum SwipeDirection {
   left,
   right,
-}
-
-class Go extends StatefulWidget {
-  Go({Key key}) : super(key: key);
-
-  @override
-  _GoState createState() => _GoState();
-}
-
-class _GoState extends State<Go> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: null,
-    );
-  }
 }
