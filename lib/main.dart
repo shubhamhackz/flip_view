@@ -649,7 +649,7 @@ class FlipTileState extends State<FlipTile>
                 (_offsetValue + diff / screenSize.width);
           } else {
             _animationController.value =
-                (_offsetValue - diff / screenSize.width);
+                (_offsetValue + diff / screenSize.width);
           }
         }
       },
