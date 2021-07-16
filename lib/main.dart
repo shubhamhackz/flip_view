@@ -63,15 +63,9 @@ class _FlipViewState extends State<FlipView> {
       ),
       body: SingleChildScrollView(
         child: StreamBuilder<Key>(
-            // initialData: 0,
             stream: activeColumnController.stream,
             builder: (context, snapshot) {
               if (snapshot.data != null) {
-                // if (snapshot.data == _keys[0]) {
-                //   _swap(1, 0);
-                // } else {
-                //   _swap(0, 1);
-                // }
                 if (snapshot.data == _widgets[0].key) {
                   _swap(1, 0);
                 }
@@ -84,86 +78,6 @@ class _FlipViewState extends State<FlipView> {
                   width: 800,
                   child: Stack(
                     children: [..._widgets],
-                    // children: [
-                    //   First(controller: activeColumnController),
-                    //   Second(controller: activeColumnController),
-                    // ],
-
-                    // Container(
-                    //   width: 195,
-                    //   child: Column(
-                    //     crossAxisAlignment: CrossAxisAlignment.start,
-                    //     children: [
-                    //       SizedBox(
-                    //         width: 400,
-                    //       ),
-                    // SimpleFoldingCell(
-                    //   key: GlobalKey<SimpleFoldingCellState>(),
-                    //   frontWidget: _buildFrontWidget('assets/irene.png'),
-                    //   innerWidget: _buildInnerWidget('irene'),
-                    //   cellSize: Size(MediaQuery.of(context).size.width / 2,
-                    //       MediaQuery.of(context).size.width / 2),
-                    //   padding: EdgeInsets.all(0),
-                    //   animationDuration: Duration(milliseconds: 300),
-                    //   borderRadius: 10,
-                    //   onOpen: () {
-                    //     print('cell opened : ');
-                    //   },
-                    //   onClose: () {
-                    //     print('cell closed :');
-                    //   },
-                    // ),
-                    //       SimpleFoldingCell(
-                    //         key: GlobalKey<SimpleFoldingCellState>(),
-                    //         frontWidget: _buildFrontWidget('assets/julia.png'),
-                    //         innerWidget: _buildInnerWidget('julia'),
-                    //         cellSize: Size(MediaQuery.of(context).size.width / 2,
-                    //             MediaQuery.of(context).size.width / 2),
-                    //         padding: EdgeInsets.all(0),
-                    //         animationDuration: Duration(milliseconds: 300),
-                    //         borderRadius: 10,
-                    //         onOpen: () {
-                    //           print('cell opened : ');
-                    //         },
-                    //         onClose: () {
-                    //           print('cell closed : ');
-                    //         },
-                    //       ),
-                    //       SimpleFoldingCell(
-                    //         key: GlobalKey<SimpleFoldingCellState>(),
-                    //         frontWidget: _buildFrontWidget('assets/paul.png'),
-                    //         innerWidget: _buildInnerWidget('paul'),
-                    //         cellSize: Size(MediaQuery.of(context).size.width / 2,
-                    //             MediaQuery.of(context).size.width / 2),
-                    //         padding: EdgeInsets.all(0),
-                    //         animationDuration: Duration(milliseconds: 300),
-                    //         borderRadius: 10,
-                    //         onOpen: () {
-                    //           print('cell opened : ');
-                    //         },
-                    //         onClose: () {
-                    //           print('cell closed : ');
-                    //         },
-                    //       ),
-                    //       SimpleFoldingCell(
-                    //         key: GlobalKey<SimpleFoldingCellState>(),
-                    //         frontWidget: _buildFrontWidget('assets/irene.png'),
-                    //         innerWidget: _buildInnerWidget('irene'),
-                    //         cellSize: Size(MediaQuery.of(context).size.width / 2,
-                    //             MediaQuery.of(context).size.width / 2),
-                    //         padding: EdgeInsets.all(0),
-                    //         animationDuration: Duration(milliseconds: 300),
-                    //         borderRadius: 10,
-                    //         onOpen: () {
-                    //           print('cell opened : ');
-                    //         },
-                    //         onClose: () {
-                    //           print('cell closed : ');
-                    //         },
-                    //       )
-                    //     ],
-                    //   ),
-                    // ),
                   ),
                 ),
               );
@@ -201,12 +115,6 @@ class First extends StatelessWidget {
                   MediaQuery.of(context).size.width / 2),
               padding: EdgeInsets.all(0),
               animationDuration: Duration(milliseconds: 300),
-              onOpen: () {
-                print('cell opened : ');
-              },
-              onClose: () {
-                print('cell closed :');
-              },
               controller: controller,
               unfoldDirection: SwipeDirection.right,
               parentKey: key,
@@ -219,12 +127,6 @@ class First extends StatelessWidget {
                   MediaQuery.of(context).size.width / 2),
               padding: EdgeInsets.all(0),
               animationDuration: Duration(milliseconds: 300),
-              onOpen: () {
-                print('cell opened : ');
-              },
-              onClose: () {
-                print('cell closed : ');
-              },
               controller: controller,
               unfoldDirection: SwipeDirection.right,
               parentKey: key,
@@ -237,12 +139,6 @@ class First extends StatelessWidget {
                   MediaQuery.of(context).size.width / 2),
               padding: EdgeInsets.all(0),
               animationDuration: Duration(milliseconds: 300),
-              onOpen: () {
-                print('cell opened : ');
-              },
-              onClose: () {
-                print('cell closed :');
-              },
               controller: controller,
               unfoldDirection: SwipeDirection.right,
               parentKey: key,
@@ -255,12 +151,6 @@ class First extends StatelessWidget {
                   MediaQuery.of(context).size.width / 2),
               padding: EdgeInsets.all(0),
               animationDuration: Duration(milliseconds: 300),
-              onOpen: () {
-                print('cell opened : ');
-              },
-              onClose: () {
-                print('cell closed : ');
-              },
               controller: controller,
               unfoldDirection: SwipeDirection.right,
               parentKey: key,
@@ -301,12 +191,7 @@ class Second extends StatelessWidget {
               padding: EdgeInsets.all(0),
               animationDuration: Duration(milliseconds: 300),
               // borderRadius: 10,
-              onOpen: () {
-                print('cell opened : ');
-              },
-              onClose: () {
-                print('cell closed :');
-              },
+
               controller: controller,
               unfoldDirection: SwipeDirection.left,
               parentKey: key,
@@ -319,12 +204,6 @@ class Second extends StatelessWidget {
                   MediaQuery.of(context).size.width / 2),
               padding: EdgeInsets.all(0),
               animationDuration: Duration(milliseconds: 300),
-              onOpen: () {
-                print('cell opened : ');
-              },
-              onClose: () {
-                print('cell closed : ');
-              },
               controller: controller,
               unfoldDirection: SwipeDirection.left,
               parentKey: key,
@@ -337,12 +216,6 @@ class Second extends StatelessWidget {
                   MediaQuery.of(context).size.width / 2),
               padding: EdgeInsets.all(0),
               animationDuration: Duration(milliseconds: 300),
-              onOpen: () {
-                print('cell opened : ');
-              },
-              onClose: () {
-                print('cell closed : ');
-              },
               controller: controller,
               unfoldDirection: SwipeDirection.left,
               parentKey: key,
@@ -355,12 +228,6 @@ class Second extends StatelessWidget {
                   MediaQuery.of(context).size.width / 2),
               padding: EdgeInsets.all(0),
               animationDuration: Duration(milliseconds: 300),
-              onOpen: () {
-                print('cell opened : ');
-              },
-              onClose: () {
-                print('cell closed : ');
-              },
               controller: controller,
               unfoldDirection: SwipeDirection.left,
               parentKey: key,
@@ -388,10 +255,6 @@ class BuildInnerWidget extends StatelessWidget {
       padding: EdgeInsets.only(top: 10),
       child: Stack(
         children: [
-          // Align(
-          //   alignment: Alignment.center,
-          //   child: Text('$name shubham soni goldy'),
-          // ),
           Align(
             alignment: Alignment.center,
             child: Column(
@@ -458,8 +321,6 @@ class BuildInnerWidget extends StatelessWidget {
           ),
         ],
       ),
-      // child: Text(name),
-      // child: Align(child: Text(name)),
     );
   }
 }
@@ -488,13 +349,10 @@ class FlipTile extends StatefulWidget {
     @required this.innerWidget,
     this.cellSize = const Size(100.0, 100.0),
     this.unfoldCell = false,
-    this.skipAnimation = false,
     this.padding =
         const EdgeInsets.only(left: 20, right: 20, bottom: 5, top: 10),
     this.animationDuration = const Duration(milliseconds: 500),
     this.borderRadius = 0.0,
-    this.onOpen,
-    this.onClose,
     this.unfoldDirection,
     this.controller,
     this.parentKey,
@@ -502,7 +360,6 @@ class FlipTile extends StatefulWidget {
         assert(innerWidget != null),
         assert(cellSize != null),
         assert(unfoldCell != null),
-        assert(skipAnimation != null),
         assert(padding != null),
         assert(animationDuration != null),
         assert(borderRadius != null && borderRadius >= 0.0),
@@ -523,9 +380,6 @@ class FlipTile extends StatefulWidget {
   /// If true cell will be unfolded when created, if false cell will be folded when created
   final bool unfoldCell;
 
-  /// If true cell will fold and unfold without animation, if false cell folding and unfolding will be animated
-  final bool skipAnimation;
-
   /// Padding around cell
   final EdgeInsetsGeometry padding;
 
@@ -535,19 +389,12 @@ class FlipTile extends StatefulWidget {
   /// Rounded border radius
   final double borderRadius;
 
-  /// Called when cell fold animations completes
-  final VoidCallback onOpen;
-
-  /// Called when cell unfold animations completes
-  final VoidCallback onClose;
-
   @override
   FlipTileState createState() => FlipTileState();
 }
 
 class FlipTileState extends State<FlipTile>
     with SingleTickerProviderStateMixin {
-  bool _isExpanded = false;
   AnimationController _animationController;
   double _offsetValue;
   Offset _freshPosition;
@@ -561,23 +408,6 @@ class FlipTileState extends State<FlipTile>
 
     _animationController =
         AnimationController(vsync: this, duration: widget.animationDuration);
-    _animationController.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        if (widget.onOpen != null) widget.onOpen();
-      } else if (status == AnimationStatus.dismissed) {
-        if (widget.onClose != null) widget.onClose();
-      }
-    });
-
-    // if (widget.unfoldCell == true) {
-    //   _animationController.value = 1;
-    //   _isExpanded = true;
-    // }
-    // _animationController.addListener(() {
-    //   if (_animationController.value > 0.6) {
-    //     _isExpanded = true;
-    //   }
-    // });
   }
 
   @override
@@ -592,12 +422,9 @@ class FlipTileState extends State<FlipTile>
       behavior: HitTestBehavior.opaque,
       onHorizontalDragStart: (DragStartDetails details) async {
         final screenSize = MediaQuery.of(context).size;
-        // widget.controller.add(1);
-        // if (!_isExpanded) {
-        widget.controller.add(widget.parentKey);
-        // }
 
-        // final offset = screenSize.width * (1.0 - widget.cellSize?.width);
+        widget.controller.add(widget.parentKey);
+
         final offset = screenSize.width;
 
         if (details.globalPosition.dx > offset ||
@@ -687,7 +514,6 @@ class FlipTileState extends State<FlipTile>
             _animationController.forward();
           }
         }
-        _isExpanded = true;
       },
       child: AnimatedBuilder(
         animation: _animationController,
@@ -812,23 +638,6 @@ class FlipTileState extends State<FlipTile>
       ),
     );
   }
-
-  // void toggleFold() {
-  //   if (_isExpanded) {
-  //     if (widget.skipAnimation == true) {
-  //       _animationController.value = 0;
-  //     } else {
-  //       _animationController.forward();
-  //     }
-  //   } else {
-  //     if (widget.skipAnimation == true) {
-  //       _animationController.value = 1;
-  //     } else {
-  //       _animationController.reverse();
-  //     }
-  //   }
-  //   _isExpanded = !_isExpanded;
-  // }
 }
 
 enum SwipeDirection {
