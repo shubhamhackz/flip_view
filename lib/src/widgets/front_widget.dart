@@ -11,6 +11,8 @@ class BuildFrontWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.black,
+      padding: EdgeInsets.all(1.5),
       child: Image.asset(asset),
     );
   }
