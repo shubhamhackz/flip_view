@@ -12,6 +12,8 @@ Made in Yalantis.
 ## Download App
 Note : Uploaded apk is a fat apk which works on armeabi-v7a (ARM 32-bit), arm64-v8a (ARM 64-bit), and x86-64 (x86 64-bit). If you want small size apk then please clone this reposittory and generate one using Android Studio or Visual Studio Code.
 
+[![Download Apk](https://github.com/shubhamhackz/light_dark_toggle/blob/master/files/apk_btn.png)](https://github.com/shubhamhackz/flip_view/blob/main/files/app-release.apk)
+
 ## Author 
 - [Facebook](https://www.facebook.com/shubhamhackz)
 - [Twitter](https://www.twitter.com/shubhamhackz)
