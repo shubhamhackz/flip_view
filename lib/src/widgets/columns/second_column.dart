@@ -23,23 +23,39 @@ class SecondColumn extends StatelessWidget {
         SizedBox(
           width: width,
         ),
-        FlipTile(
-          key: GlobalKey<FlipTileState>(),
-          frontWidget: BuildFrontWidget(asset: 'assets/irene.png'),
-          innerWidget: BuildInnerWidget(name: 'irene'),
-          tileSize: Size(width / 2, width / 2),
+        Container(
+          child: FlipTile(
+            key: GlobalKey<FlipTileState>(),
+            frontWidget: BuildFrontWidget(asset: 'assets/irene.png'),
+            innerWidget: InnerWidget(
+              name: 'IRENE',
+              tags: [
+                'Sports',
+                'Math',
+                'Books',
+                'Rock Band Drummer',
+                'Fitness',
+              ],
+              backgroundColor: Color(0xFF10b4a5),
+            ),
+            tileSize: Size(width / 2, width / 2),
 
-          animationDuration: Duration(milliseconds: 300),
-          // borderRadius: 10,
+            animationDuration: Duration(milliseconds: 300),
+            // borderRadius: 10,
 
-          stackController: controller,
-          unfoldDirection: SwipeDirection.left,
-          parentKey: key,
+            stackController: controller,
+            unfoldDirection: SwipeDirection.left,
+            parentKey: key,
+          ),
         ),
         FlipTile(
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/julia.png'),
-          innerWidget: BuildInnerWidget(name: 'julia'),
+          innerWidget: InnerWidget(
+            name: 'JULIA',
+            tags: ['Running', 'Books', 'Rock Music', 'Art', 'Science'],
+            backgroundColor: Color(0xFFf0b136),
+          ),
           tileSize: Size(width / 2, width / 2),
           animationDuration: Duration(milliseconds: 300),
           stackController: controller,
@@ -49,7 +65,11 @@ class SecondColumn extends StatelessWidget {
         FlipTile(
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/paul.png'),
-          innerWidget: BuildInnerWidget(name: 'paul'),
+          innerWidget: InnerWidget(
+            name: 'PAUL',
+            tags: ['Sports', 'Motorcyclying', 'Books', 'Blondies', 'Pet'],
+            backgroundColor: Color(0xFffe6d72),
+          ),
           tileSize: Size(width / 2, width / 2),
           animationDuration: Duration(milliseconds: 300),
           stackController: controller,
@@ -59,7 +79,11 @@ class SecondColumn extends StatelessWidget {
         FlipTile(
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/irene.png'),
-          innerWidget: BuildInnerWidget(name: 'irene'),
+          innerWidget: InnerWidget(
+            name: 'IRENE',
+            tags: ['Fitness', 'Coding', 'Sports', 'Art', 'Dance'],
+            backgroundColor: Color(0xFFffcd23),
+          ),
           tileSize: Size(width / 2, width / 2),
           animationDuration: Duration(milliseconds: 300),
           stackController: controller,

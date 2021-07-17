@@ -25,7 +25,11 @@ class FirstColumn extends StatelessWidget {
         FlipTile(
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/daria.png'),
-          innerWidget: BuildInnerWidget(name: 'daria'),
+          innerWidget: InnerWidget(
+            name: 'DARIA',
+            tags: ['Artist', 'Litrature', 'Chill Music', 'Art', 'Dance'],
+            backgroundColor: Color(0xFF4af2a1),
+          ),
           tileSize: Size(width / 2, width / 2),
           animationDuration: Duration(milliseconds: 300),
           stackController: controller,
@@ -35,7 +39,11 @@ class FirstColumn extends StatelessWidget {
         FlipTile(
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/anastasia.png'),
-          innerWidget: BuildInnerWidget(name: 'anastasia'),
+          innerWidget: InnerWidget(
+            name: 'ANASTASIA',
+            tags: ['Vegetarian', 'Pet', 'Books', 'Art', 'Dance'],
+            backgroundColor: Color(0xFF5cc9f5),
+          ),
           tileSize: Size(width / 2, width / 2),
           animationDuration: Duration(milliseconds: 300),
           stackController: controller,
@@ -45,7 +53,11 @@ class FirstColumn extends StatelessWidget {
         FlipTile(
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/kate.png'),
-          innerWidget: BuildInnerWidget(name: 'kate'),
+          innerWidget: InnerWidget(
+            name: 'KATE',
+            tags: ['Cycling', 'Rock Band Drummer', 'Pop Music', 'Art', 'Dance'],
+            backgroundColor: Color(0xFFffa26b),
+          ),
           tileSize: Size(width / 2, width / 2),
           animationDuration: Duration(milliseconds: 300),
           stackController: controller,
@@ -55,7 +67,11 @@ class FirstColumn extends StatelessWidget {
         FlipTile(
           key: GlobalKey<FlipTileState>(),
           frontWidget: BuildFrontWidget(asset: 'assets/kirill.png'),
-          innerWidget: BuildInnerWidget(name: 'kirill'),
+          innerWidget: InnerWidget(
+            name: 'KIRILL',
+            tags: ['Swimming', 'Coding', 'Pop Music', 'Pet', 'Books'],
+            backgroundColor: Color(0xFFfe6d72),
+          ),
           tileSize: Size(width / 2, width / 2),
           animationDuration: Duration(milliseconds: 300),
           stackController: controller,
