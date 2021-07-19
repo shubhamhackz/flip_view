@@ -67,6 +67,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  folding_card:
+    dependency: "direct main"
+    description:
+      path: "/Users/admin/Desktop/Projects/folding_card"
+      relative: false
+    source: path
+    version: "0.0.1"
   matcher:
     dependency: transitive
     description:
@@ -151,3 +158,4 @@ packages:
     version: "2.1.0-nullsafety.3"
 sdks:
   dart: ">=2.10.0-110 <2.11.0"
+  flutter: ">=1.17.0"
