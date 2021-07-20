@@ -24,7 +24,7 @@ Note : Uploaded apk is a fat apk which works on armeabi-v7a (ARM 32-bit), arm64-
     - 🍴 Fork this repo!
 
 - **Option 2**
-    - 👯 Clone this repo to your local machine using `https://github.com/shubhamhackz/day_night_login.git`
+    - 👯 Clone this repo to your local machine using `https://github.com/shubhamhackz/flip_view`
 
 ### Step 2
 
@@ -32,7 +32,7 @@ Note : Uploaded apk is a fat apk which works on armeabi-v7a (ARM 32-bit), arm64-
 
 ### Step 3
 
-- 🔃 Create a new pull request using <a href="https://github.com/shubhamhackz/day_night_login/compare/" target="_blank">`https://github.com/shubhamhackz/day_night_login/compare/`</a>.
+- 🔃 Create a new pull request using <a href="https://github.com/shubhamhackz/flip_view/compare/" target="_blank">`https://github.com/shubhamhackz/day_night_login/compare/`</a>.
 
 ---
 
